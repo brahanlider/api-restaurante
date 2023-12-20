@@ -4,7 +4,7 @@ const foods = () => {
 
     data.forEach((element) => {
       // const { id, name, description, urlImagen, urlRecipes } = element;
-      const { id, name, urlImage, description, category, urlRecipe } = element;
+      const { id, name, urlImage, description, urlRecipe } = element;
 
       foodsFoods.innerHTML += `
       <div class="col-md-4" key=${id}>
@@ -16,7 +16,7 @@ const foods = () => {
         <div class="card-body">
           <img src="${urlImage}" class="card-img-top" alt="Anime 1" width="256" height="144"
             style="width: 100%; height: 192px; object-fit: cover; border-radius: 0.5rem">
-          <h5 class="card-title mt-2">${category}</h5>
+          <h5 class="card-title mt-2">${name}</h5>
           <p class="card-text">${description}</p>
         </div>
         <div class="card-footer text-center">
@@ -29,9 +29,9 @@ const foods = () => {
   };
 
   const fetchRead = async () => {
-    const response = await fetch("https://fakestoreapi.com/products");
+    const response = await fetch("https://brahanlider.github.io/api-restaurante/api/data.json");
     const data = await response.json();
-    renderFoods(data);
+    renderFoods(data);//llama los =>(data.json)
     // console.log(data);
   };
   fetchRead();
